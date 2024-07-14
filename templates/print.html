@@ -17,7 +17,7 @@
 
                             {% for sub, grade in value.items() %}
                                 {% if sub == 'Name' %}
-                                    <td > <center> <a href="http://localhost:5000/studenteditlink/{{key}}">{{ grade }}</a> <center> </td>
+                                    <td > <center> <a href="/studenteditlink/{{key}}">{{ grade }}</a> <center> </td>
                                 {%else%}
                                     <td> <center> {{ grade }} </center> </td>
                                 {%endif%}
@@ -33,7 +33,7 @@
 
    <br><br><br>
     <center>
-        <form action="http://localhost:5000/">
+        <form action="/">
             <p><input type = "submit" 
                       id="submit"
                       value = "Go to Homepage"  /></p> 
