@@ -41,6 +41,14 @@ def database_update_entry(key_val,new_result):
             print('inside database_update_entry', key_val, new_result)
             return entry_status
 
+def database_delete_entry(key_val):
+            global storage
+            entry_status = storage.delete_one(
+                  {'Name':key_val}
+            )
+            print('inside database_delete_entry', key_val)
+            return entry_status
+
 
 
 data={}
@@ -76,6 +84,20 @@ def result():
       else:
          return render_template("edit.html",result = result, old_result= pass_dict)
       
+@app.route('/delete',methods = ['POST', 'GET'])
+def delete():
+      result = request.form
+      print('result from delete',result)
+      global data
+      name_var=result['Name']
+      print('name_var',type(name_var),name_var)
+      name_var_without_padding=name_var[1:-1]
+      data[name_var_without_padding]=result
+      update_status = database_delete_entry(name_var_without_padding)
+      #print('Final result:::::::',result)
+      return render_template('student.html')
+
+
 
 @app.route('/update',methods = ['POST', 'GET'])
 def update():
