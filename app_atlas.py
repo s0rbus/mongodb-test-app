@@ -47,7 +47,7 @@ def database_delete_entry(key_val):
                   {'Name':key_val}
             )
             print('inside database_delete_entry', key_val)
-            return entry_status
+            return
 
 
 
