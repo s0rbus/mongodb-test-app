@@ -43,7 +43,7 @@ def database_update_entry(key_val,new_result):
 
 def database_delete_entry(key_val):
             global storage
-            storage.delete_one(
+            storage.delete_many(
                   {'Name':key_val}
             )
             print('inside database_delete_entry', key_val)
@@ -88,12 +88,12 @@ def result():
 def delete():
       result = request.form
       print('result from delete',result)
-      global data
+      #global data
       name_var=result['Name']
       print('name_var',type(name_var),name_var)
-      name_var_without_padding=name_var[1:-1]
-      data[name_var_without_padding]=result
-      database_delete_entry(name_var_without_padding)
+      #name_var_without_padding=name_var[1:-1]
+      #data[name_var_without_padding]=result
+      database_delete_entry(name_var)
       #print('Final result:::::::',result)
       return fulllist()
 
