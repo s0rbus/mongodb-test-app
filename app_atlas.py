@@ -43,7 +43,7 @@ def database_update_entry(key_val,new_result):
 
 def database_delete_entry(key_val):
             global storage
-            entry_status = storage.delete_one(
+            storage.delete_one(
                   {'Name':key_val}
             )
             print('inside database_delete_entry', key_val)
@@ -93,9 +93,9 @@ def delete():
       print('name_var',type(name_var),name_var)
       name_var_without_padding=name_var[1:-1]
       data[name_var_without_padding]=result
-      update_status = database_delete_entry(name_var_without_padding)
+      database_delete_entry(name_var_without_padding)
       #print('Final result:::::::',result)
-      return render_template('student.html')
+      return fulllist()
 
 
 
